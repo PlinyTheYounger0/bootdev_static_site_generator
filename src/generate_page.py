@@ -27,8 +27,8 @@ def generate_page(src_path, template_path, dest_path, base_path):
 
     title_no_content_html = html_template.replace('{{ Title }}', title)
     title_content_html = title_no_content_html.replace('{{ Content }}', html_content)
-    title_content_html = title_content_html.replace('href="/', f'href="{base_path}')
-    title_content_html = title_content_html.replace('src="/', f'src="{base_path}')
+    title_content_html = title_content_html.replace('href="/', 'href="' + base_path)
+    title_content_html = title_content_html.replace('src="/', 'src="' + base_path)
 
     dest_dirs_path = os.path.dirname(dest_path)
     os.makedirs(dest_dirs_path, exist_ok=True)
